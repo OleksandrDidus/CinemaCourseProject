@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Cinema.Data.Models.Session>
+<!DOCKTYPE html>
+    <html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+        <title>SpaceX</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="header_iner">
+                    <div class=" logo">
+                        <a href="https://localhost:44377" class="text">SpaceX</a>
+                    </div>
+                    <nav class="nav">
+                        <a class="nav_link" >Ви Користувач! </a>
+                        
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <hr class="hr-shadow">
+        <style>
+            .hr-shadow {
+                background: #00ff90;
+                margin: 20px 0;
+                margin-top: 50px;
+                height: 3px;
+                border: none;
+                border-top: 1px solid #333;
+                box-shadow: 0 10px 10px -10px #8c8b8b inset;
+            }
+        </style>
+        <div></div>
+        <div class="films">
+            <div class="container">
+                <div class="intro_text">Фільми у прокаті: </div>
+                <div class="film_item1">
+                    @foreach (var item in Model)
+                    {
+                        <div class="film_item">
+                            <img src=@Html.DisplayFor(modelItem => item.Film.ImageUrl) mode alt="" width="387" height="600">
+                            <div class="film_content">
+                                <div class="film_name">
+                                    @*<a class="text">@Html.DisplayFor(modelItem => item.Film.Name)</a>*@
+                                    <a class="text" asp-area="" asp-controller="Session" asp-action="Info" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.Film.Name)</a>
+                                </div>
+                                @*<div class="film_date">@Html.DisplayFor(modelItem => item.Film.ReleaseDate)</div>*@
+
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+
+        </div>
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2022 - Cinema
+            </div>
+        </footer>
+    </body>
+</html>
