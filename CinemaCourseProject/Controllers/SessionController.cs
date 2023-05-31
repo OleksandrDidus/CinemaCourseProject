@@ -39,6 +39,7 @@ namespace Cinema.Controllers
         public async Task<IActionResult> Info(int id)
         {
             // Return film Details
+            //var session = (await _sessionRepository.GetAsync(a => a.FilmId == id, i => i.Include(b => b.Film).ThenInclude(u => u.Genres))).FirstOrDefault();
             var film = (await _sessionRepository.GetAsync(
                             f => f.Id == id,
                             i => i.Include(b => b.Film).ThenInclude(u => u.Genres))).FirstOrDefault();
